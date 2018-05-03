@@ -1,0 +1,77 @@
+void usuwanie(Element *&BST, string n, Element *&odp){
+    Element * lisc= BST, *rodzic= nullptr;
+    szukaj(n,BST,lisc);
+    bool czyjest=false;
+    while(lisc!=NULL){
+        if (lisc->slowo.compare(n)==0){
+            czyjest = true;
+            odp=lisc->odpowiednik;
+            break;
+        }
+        else{
+            rodzic=lisc;
+            if(n.compare(lisc->slowo)>0)
+                lisc=lisc->prawo;
+            else
+                lisc=lisc->lewo;
+        }
+    }
+    if (!czyjest){
+        cout<<"Nie znaleziono takiego slowa"<<endl;
+        odp=NULL;
+        return;
+    }
+    if (lisc== nullptr){
+        cout<<"Brak takie slowa w slowniku"<<endl;
+        return;
+    }
+    odp=lisc->odpowiednik;
+    // 1 przypadek brak dzieci
+    if(lisc->prawo== nullptr && lisc->lewo== nullptr){
+        delete lisc;
+        return;
+    }
+    // 2 przyapdek 1 dziecko z prawe lub lewej
+    if(lisc->lewo== nullptr && lisc->prawo!= nullptr){
+        if(rodzic->lewo==lisc){
+            rodzic->lewo=lisc->prawo;
+            delete lisc;
+            return;
+        }
+        else{
+            rodzic->prawo=lisc->prawo;
+            delete lisc;
+            return;
+        }
+
+    }
+    if(lisc->prawo== nullptr && lisc->lewo!= nullptr){
+        if(rodzic->lewo==lisc){
+            rodzic->lewo=lisc->lewo;
+            delete lisc;
+            return;
+        }
+        else{
+            rodzic->prawo=lisc->lewo;
+            delete lisc;
+            return;
+        }
+
+    }
+    // 3 przypadek  2 dzieci
+    if(lisc->lewo!= nullptr && lisc->prawo!= nullptr){
+        Element * pomocniczy = nullptr;
+        pomocniczy=lisc;
+        pomocniczy=pomocniczy->prawo;
+        while(pomocniczy->lewo!= nullptr){
+            rodzic=pomocniczy;
+            pomocniczy=pomocniczy->lewo;
+        }
+        rodzic->lewo=pomocniczy->prawo;
+        lisc->slowo=pomocniczy->slowo;
+        lisc->odpowiednik=pomocniczy->odpowiednik;
+        delete pomocniczy;
+        return;
+    }
+
+}

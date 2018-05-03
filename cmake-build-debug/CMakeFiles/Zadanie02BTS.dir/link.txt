@@ -1,0 +1,3 @@
+C:\Users\Exomat\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\172.4343.16\bin\cmake\bin\cmake.exe -E remove -f CMakeFiles\Zadanie02BTS.dir/objects.a
+C:\PROGRA~2\CODEBL~1\MinGW\bin\ar.exe cr CMakeFiles\Zadanie02BTS.dir/objects.a @CMakeFiles\Zadanie02BTS.dir\objects1.rsp
+C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\Zadanie02BTS.dir/objects.a -Wl,--no-whole-archive  -o Zadanie02BTS.exe -Wl,--out-implib,libZadanie02BTS.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Zadanie02BTS.dir\linklibs.rsp

@@ -1,0 +1,3 @@
+C:/Users/Exomat/CLionProjects/Zadanie02BTS/cmake-build-debug/CMakeFiles/Zadanie02BTS.dir
+C:/Users/Exomat/CLionProjects/Zadanie02BTS/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Exomat/CLionProjects/Zadanie02BTS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
